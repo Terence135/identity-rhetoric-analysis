@@ -6,3 +6,12 @@ data/annotations/*.csv
 *.egg-info/
 .DS_Store
 !data/annotations/template.csv
+
+.env
+.env.*
+!.env.example
+data/local/
+data/processed/
+runs/
+models/roberta/
+models/roberta_gpu/interrupted_adapter/
