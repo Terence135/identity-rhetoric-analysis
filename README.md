@@ -6,9 +6,9 @@ classification head on the **Davidson hate_speech_offensive dataset**. RoBERTa i
 encoder transformer; this project uses supervised classification, not a conversational generative LLM.
 
 ## Current status
-The initial CPU run was stopped after confirming that this execution session could not access Metal.
-A partial adapter was saved locally and is excluded from Git. Run `./run_roberta_gpu.sh` in a normal
-GPU-enabled environment to start the full experiment. **Do not claim measured RoBERTa performance until
+The initial restricted-process CPU run was stopped. A replacement run has started successfully
+using Apple Metal (`device: mps`) from the normal Terminal, with output in models/roberta_gpu.
+The partial CPU adapter remains local and is excluded from Git. **Do not claim measured RoBERTa performance until
 models/roberta/metrics.json exists and the run is complete.** The previously published 0.733 macro F1
 belongs to the older TF-IDF model, not RoBERTa. See docs/PROJECT_STATUS.md.
 
@@ -76,3 +76,12 @@ A passing fixture test is not model performance evidence.
 - Davidson et al. (2017): https://arxiv.org/abs/1703.04009
 - Almagro et al. (2026): https://doi.org/10.3389/fcomm.2026.1743196
 - Matamoros-Fernández and Farkas (2021): https://doi.org/10.1177/1527476420982230
+
+## Results report
+After a run completes:
+```bash
+python -m pip install -r requirements-report.txt
+python make_report.py --run models/roberta_gpu
+```
+This generates aggregate result tables, a confusion matrix and a same-split per-class F1 comparison.
+A missing final metrics file stops report generation rather than filling in hypothetical results.

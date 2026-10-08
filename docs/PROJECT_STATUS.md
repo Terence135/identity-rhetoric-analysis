@@ -3,7 +3,9 @@
 ## Selected RoBERTa experiment
 - User selected FacebookAI/roberta-base and tdavidson/hate_speech_offensive.
 - Initial CPU fine-tuning was stopped after GPU access diagnosis; an incomplete adapter was saved locally.
-- GPU-only launcher is ready for a normal Terminal process with Apple Metal or CUDA access.
+- GPU-only launcher succeeded from normal Terminal; the replacement run records device=mps.
+- Dataset audit: 24,544 unique usable posts; 6 exceed the 96-token limit.
+- Aggregate results-report generation is implemented; final metrics are still pending.
 - RoBERTa test results and selected adapter are pending completion.
 
 ## Implemented and locally verifiable
